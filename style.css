@@ -1,0 +1,2087 @@
+/*
+ Theme Name: Astra Child
+ Theme URI: https://wpastra.com/
+ Description: Child theme for Astra
+ Author: Aftab
+ Template: astra
+ Version: 1.0.0
+*/
+
+/* ============================
+   GREEN MENU BAR
+   ============================ */
+.hic-menu {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    padding: 10px 0;
+    background: #0A3D2E;
+}
+
+.hic-menu a {
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    padding: 6px 4px;
+    font-size: 1rem;
+}
+
+.hic-menu a:hover {
+    color: #C9A227;
+}
+
+.hic-menu a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: #C9A227;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.hic-menu a:hover::after {
+    width: 60%;
+}
+
+@media (max-width: 768px) {
+    .hic-menu {
+        flex-wrap: wrap;
+        gap: 16px 20px;
+        padding: 12px 0;
+    }
+}
+
+/* ============================
+   EVENTS + WHAT'S ON (UNCHANGED)
+   ============================ */
+/* — your entire events system exactly as you provided — */
+
+.hic-events-wrapper {
+    font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.hic-event-card {
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    background: #ffffff;
+    overflow: hidden;
+}
+
+.hic-event-collapsed {
+    display: flex;
+    align-items: stretch;
+    padding: 12px 14px;
+    gap: 12px;
+    cursor: pointer;
+}
+
+.hic-event-date {
+    min-width: 52px;
+    max-width: 52px;
+    background: #0F3D2E;
+    color: #ffffff;
+    border-radius: 10px;
+    text-align: center;
+    padding: 6px 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding-top: 14px;
+    border: 2px solid #0F3D2E;
+}
+
+.hic-event-date::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 6px;
+    background: #0F3D2E;
+    border-radius: 4px;
+}
+
+.hic-event-day {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+.hic-event-month {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.hic-event-year {
+    font-size: 11px;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.hic-event-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.hic-event-category {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #009688;
+    margin-bottom: 2px;
+}
+
+.hic-event-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0;
+    color: #222222;
+}
+
+.hic-event-time {
+    font-size: 13px;
+    margin: 2px 0 0;
+    color: #555555;
+}
+
+.hic-event-excerpt {
+    font-size: 12px;
+    margin: 4px 0 0;
+    color: #777777;
+}
+
+.hic-event-chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hic-chevron-icon {
+    width: 14px;
+    height: 14px;
+    position: relative;
+    display: inline-block;
+    transition: transform 0.25s ease;
+}
+
+.hic-chevron-icon::before,
+.hic-chevron-icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #0F3D2E;
+    border-radius: 2px;
+}
+
+.hic-chevron-icon::before {
+    top: 4px;
+    transform: rotate(45deg);
+}
+
+.hic-chevron-icon::after {
+    top: 8px;
+    transform: rotate(-45deg);
+}
+
+.hic-chevron-icon.hic-rotated {
+    transform: rotate(180deg);
+}
+
+.hic-event-expanded {
+    border-top: 1px solid #eeeeee;
+    background: #fafafa;
+    padding: 12px 14px 14px;
+}
+
+/* Wrapper around the event image */
+.hic-event-image-wrapper {
+    max-width: 220px;      /* controls overall size */
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* The image itself */
+.hic-event-featured-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+@media (max-width: 1024px) {
+    .hic-event-image-wrapper {
+        max-width: 180px;
+    }
+}
+
+@media (max-width: 767px) {
+    .hic-event-image-wrapper {
+        max-width: 150px;
+    }
+}
+
+
+.hic-event-expanded-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* Put image on the left and details on the right */
+.hic-event-expanded-inner {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* Keep the right-hand content flexible */
+.hic-event-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* Hide excerpt inside expanded section */
+.hic-event-expanded .hic-event-excerpt {
+    display: none;
+}
+.hic-event-expanded-inner {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.hic-event-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Mobile fallback */
+@media (max-width: 767px) {
+    .hic-event-expanded-inner {
+        flex-direction: column;
+    }
+}
+.hic-event-expanded-inner {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.hic-event-left {
+    max-width: 240px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.hic-event-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+/* Keep desktop layout exactly as-is */
+.hic-event-expanded-inner {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.hic-event-left {
+    max-width: 240px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.hic-event-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* MOBILE FIX — allow both columns to fit side-by-side */
+@media (max-width: 767px) {
+
+    .hic-event-left {
+        max-width: 140px;   /* smaller so programme fits on the right */
+        flex-shrink: 1;     /* allow it to shrink if needed */
+    }
+
+    .hic-event-image-wrapper img {
+        max-width: 140px;   /* match the wrapper */
+    }
+
+    .hic-event-details {
+        flex: 1;
+    }
+}
+/* Collapsed header layout */
+.hic-event-collapsed {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+}
+
+/* Date on the left, main in the middle, chevron + share on the right */
+.hic-event-date {
+    /* keep whatever you already have here */
+}
+
+.hic-event-main {
+    flex: 1;
+}
+
+/* Chevron: right side, vertically centered */
+.hic-event-chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+}
+
+/* Show menu ONLY when hovering share container */
+.hic-share-container:hover .hic-share-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Individual social icons */
+.hic-share-menu .hic-share {
+    font-size: 14px;
+    color: #0F3D2E;
+    padding: 6px;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+}
+
+/* Gold hover effect */
+.hic-share-menu .hic-share:hover {
+    background: #C9A227;
+    color: #ffffff;
+}
+
+/* Mobile layout 
+@media (max-width: 767px) {
+    .hic-event-expanded-inner {
+        flex-direction: column;
+    }
+
+    .hic-event-left {
+        max-width: 100%;
+    }
+} */
+
+.hic-event-description {
+    font-size: 13px;
+    color: #444444;
+}
+
+.hic-event-description p {
+    margin: 0 0 6px;
+}
+
+.hic-event-timetable {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 8px 10px;
+    border: 1px solid #e0e0e0;
+}
+
+.hic-timetable-heading {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 0 6px;
+    color: #0F3D2E;
+}
+
+.hic-timetable-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    padding: 3px 0;
+    border-bottom: 1px dashed #eeeeee;
+}
+
+.hic-timetable-row:last-child {
+    border-bottom: none;
+}
+
+.hic-timetable-time {
+    font-weight: 600;
+    color: #0F3D2E;
+}
+
+.hic-timetable-label {
+    color: #555555;
+}
+
+.hic-event-meta {
+    font-size: 12px;
+    color: #444444;
+}
+
+.hic-event-button {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 12px;
+    border-radius: 999px;
+    background: #009688;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.hic-event-button:hover {
+    background: #00796b;
+}
+
+.hic-all-events-button {
+    display: inline-block;
+    padding: 8px 20px;
+    font-size: 13px;
+    border-radius: 999px;
+    border: 1px solid #0F3D2E;
+    color: #0F3D2E;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+}
+
+.hic-all-events-button:hover {
+    background: #0F3D2E;
+    color: #ffffff;
+}
+
+/* ============================
+   PRAYER TIMES — CLEAN FINAL VERSION
+   ============================ */
+
+/* Outer wrapper (Elementor boxed container) */
+.hic-pt-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 12px;
+}
+
+/* Main bar */
+.hic-prayer-times-bar {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    background: #ffffff;
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* LEFT SIDE */
+.hic-pt-left {
+    min-width: 260px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: #0A3D2E;
+    color: #ffffff;
+}
+
+.hic-pt-date-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.hic-pt-gregorian {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.hic-pt-islamic {
+    font-size: 0.9rem;
+    color: #C9A227;
+}
+
+/* RIGHT SIDE */
+.hic-pt-right {
+    flex: 1;
+    padding: 10px 16px 10px 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    flex-wrap: nowrap;
+}
+
+/* TODAY + TOMORROW INLINE */
+.hic-pt-today-row,
+.hic-pt-tomorrow-row {
+    display: flex;
+    flex-direction: row;
+    gap: 14px;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin: 0;
+}
+
+/* TOMORROW LABEL */
+.hic-pt-tomorrow-label {
+    font-weight: 700;
+    color: #0A3D2E;
+    font-size: 0.9rem;
+    margin-right: 4px;
+}
+
+/* PILL STYLE */
+.hic-pt-item {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #F7F7F7;
+    border: 1px solid #E0E0E0;
+    white-space: nowrap;
+}
+
+.hic-pt-label {
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+}
+
+.hic-pt-time {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* NEXT PRAYER HIGHLIGHT */
+.hic-pt-item.hic-pt-next {
+    background: #C9A227;
+    border-color: #C9A227;
+}
+
+.hic-pt-item.hic-pt-next .hic-pt-label,
+.hic-pt-item.hic-pt-next .hic-pt-time {
+    color: #0A3D2E;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .hic-prayer-times-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hic-pt-left,
+    .hic-pt-right {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .hic-pt-right {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 10px 12px;
+    }
+
+    .hic-pt-today-row,
+    .hic-pt-tomorrow-row {
+        display: contents;
+    }
+
+    .hic-pt-tomorrow-label {
+        width: 100%;
+        margin-bottom: 4px;
+    }
+
+    .hic-pt-item {
+        margin: 0;
+    }
+}
+/* Allow right side to shrink properly */
+.hic-pt-right,
+.hic-pt-today-row,
+.hic-pt-tomorrow-row {
+    min-width: 0;
+}
+
+/* Let pills shrink a bit instead of forcing overflow */
+.hic-pt-item {
+    flex: 0 1 auto;
+}
+
+/* Make sure the bar itself never hides overflow */
+.hic-prayer-times-bar {
+    overflow: visible;
+}
+
+/* On slightly smaller desktops, allow gentle wrapping */
+@media (max-width: 1100px) and (min-width: 769px) {
+    .hic-pt-right {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        row-gap: 8px;
+    }
+}
+
+/* Mosque pill before Fajr */
+.hic-pt-mosque {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #F7F7F7;
+    border: 1px solid #E0E0E0;
+    white-space: nowrap;
+}
+
+.hic-pt-mosque-icon svg {
+    width: 20px;
+    height: 20px;
+    color: #C9A227;
+}
+/* ============================
+   PRAYER TIMES – DESKTOP LAYOUT REFINEMENT
+   ============================ */
+
+/* Base: let the right side breathe and shrink correctly */
+.hic-pt-right,
+.hic-pt-today-row,
+.hic-pt-tomorrow-row {
+    min-width: 0;
+}
+
+.hic-pt-item {
+    flex: 0 1 auto;
+}
+
+/* Large desktop: keep everything in one row, reduce padding/gaps slightly */
+@media (min-width: 1200px) {
+    .hic-pt-right {
+        padding-left: 24px;
+        gap: 10px;
+    }
+
+    .hic-pt-today-row,
+    .hic-pt-tomorrow-row {
+        gap: 10px;
+        flex-wrap: nowrap;
+    }
+
+    .hic-pt-item {
+        padding: 5px 8px;
+    }
+}
+
+/* Medium desktop: allow a gentle wrap instead of squashing */
+@media (min-width: 900px) and (max-width: 1199px) {
+    .hic-pt-right {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        row-gap: 8px;
+        column-gap: 10px;
+        padding-left: 16px;
+    }
+
+    .hic-pt-today-row,
+    .hic-pt-tomorrow-row {
+        flex-wrap: wrap;
+    }
+
+    .hic-pt-item {
+        padding: 5px 8px;
+    }
+}
+
+/* Ensure the bar never hides overflow */
+.hic-prayer-times-bar {
+    overflow: visible;
+}
+/* ============================
+   PRAYER TIMES – DESKTOP SPACING FIX
+   ============================ */
+
+/* Allow the right side to shrink properly */
+.hic-pt-right,
+.hic-pt-today-row,
+.hic-pt-tomorrow-row {
+    min-width: 0;
+}
+
+/* Reduce padding so pills don't get squashed */
+.hic-pt-item {
+    padding: 4px 8px;
+    flex: 0 1 auto;
+}
+
+/* Reduce gaps between items */
+.hic-pt-right {
+    gap: 10px;
+    padding-left: 20px;
+}
+
+.hic-pt-today-row,
+.hic-pt-tomorrow-row {
+    gap: 10px;
+}
+
+/* Make Tomorrow → stand out with spacing */
+.hic-pt-tomorrow-label {
+    margin-right: 6px;
+}
+
+/* Allow a soft wrap ONLY on tight desktops */
+@media (max-width: 1150px) and (min-width: 769px) {
+    .hic-pt-right {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        row-gap: 8px;
+    }
+}
+/* Expand prayer-times container to match new Elementor width */
+.hic-pt-wrapper {
+    max-width: 1400px !important;
+    margin: 0 auto;
+    padding: 0 12px;
+}
+
+/* Adjust spacing so everything fits comfortably */
+.hic-pt-right {
+    gap: 14px;
+    padding-left: 24px;
+}
+
+.hic-pt-today-row,
+.hic-pt-tomorrow-row {
+    gap: 14px;
+}
+
+.hic-pt-item {
+    padding: 6px 10px;
+    flex: 0 1 auto;
+}
+/* Hide Astra mobile menu toggle completely */
+.ast-mobile-menu-trigger,
+.ast-header-break-point .ast-mobile-menu-trigger {
+    display: none !important;
+}
+
+/* Share container: positioned relative so dropdown aligns correctly */
+.hic-share-container {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 20;
+}
+
+/* Main share icon */
+.hic-share-trigger {
+    font-size: 16px;
+    color: #0F3D2E;
+    cursor: pointer;
+    transition: color 0.25s ease;
+}
+
+.hic-share-trigger:hover {
+    color: #C9A227;
+}
+
+/* Dropdown menu — now correctly attached to the share icon */
+.hic-share-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 6px;
+
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 6px 8px;
+    border-radius: 8px;
+    display: flex;
+    gap: 8px;
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Show menu on hover */
+.hic-share-container-inner:hover .hic-share-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.hic-share-container-inner {
+    position: relative;
+    display: inline-flex;
+}
+
+/* ============================
+   SHARE ICON — FINAL FIXED VERSION
+   ============================ */
+
+.hic-share-container {
+    position: absolute;
+    right: 14px;
+    bottom: 12px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 50;
+}
+
+.hic-share-container-inner {
+    position: relative;
+    display: inline-flex;
+}
+
+.hic-share-trigger {
+    font-size: 16px;
+    color: #0F3D2E;
+    cursor: pointer;
+    transition: color 0.25s ease;
+}
+
+.hic-share-trigger:hover {
+    color: #C9A227;
+}
+
+.hic-share-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 6px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 6px 8px;
+    border-radius: 8px;
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.hic-share-container-inner:hover .hic-share-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.hic-share-menu .hic-share {
+    font-size: 14px;
+    color: #0F3D2E;
+    padding: 6px;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+}
+
+.hic-share-menu .hic-share:hover {
+    background: #C9A227;
+    color: #ffffff;
+}
+
+@media (max-width: 767px) {
+    .hic-share-container {
+        bottom: 10px;
+        right: 12px;
+    }
+
+    .hic-share-menu {
+        gap: 10px;
+        padding: 8px 10px;
+    }
+}
+.hic-event-actions-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.hic-share-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 4px;
+}
+
+.hic-share-trigger {
+    font-size: 16px;
+    color: #0F3D2E;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.hic-share-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 6px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 6px 8px;
+    border-radius: 8px;
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.hic-share-container:hover .hic-share-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.hic-share-menu .hic-share {
+    font-size: 14px;
+    color: #0F3D2E;
+    padding: 6px;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+}
+
+.hic-share-menu .hic-share:hover {
+    background: #C9A227;
+    color: #ffffff;
+}
+/* Align chevron + share icon on the right in correct order */
+
+/* 1. Make the collapsed row a proper flex row */
+.hic-event-collapsed {
+    display: flex;
+    align-items: center;
+}
+
+/* 2. Ensure main content takes the middle space */
+.hic-event-main {
+    flex: 1;
+}
+
+/* 3. Right-side actions: chevron then share, aligned vertically */
+.hic-event-actions-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;          /* space between chevron and share */
+    margin-left: auto; /* push to far right */
+}
+
+/* 4. Tidy chevron box so it matches vertically */
+.hic-event-chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 5. Nudge share icon to align visually with chevron */
+.hic-share-container {
+    display: inline-flex;
+    align-items: center;
+    padding: 0;        /* remove extra vertical padding */
+}
+
+.hic-share-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+/* FINAL OVERRIDE: align chevron + share, kill old absolute positioning */
+
+/* Make collapsed row a clean flex row */
+.hic-event-collapsed {
+    display: flex;
+    align-items: center;
+}
+
+/* Middle content stretches */
+.hic-event-main {
+    flex: 1;
+}
+
+/* Right-side group: chevron + share */
+.hic-event-actions-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+}
+
+/* Ensure both chevron and share sit on same baseline */
+.hic-event-chevron,
+.hic-share-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Kill any old absolute positioning on share container */
+.hic-share-container {
+    position: static !important;
+    padding: 0;
+}
+
+/* Tidy the share icon itself */
+.hic-share-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 0;
+}
+
+.hic-share-trigger i {
+    display: block;
+    font-size: 16px;
+}
+
+/* Keep dropdown positioned relative to the share container */
+.hic-share-menu {
+    top: 100%;
+    right: 0;
+}
+/* ============================
+   FINAL FIX — Chevron above, Share below, aligned right
+   ============================ */
+
+/* Make collapsed row a clean flex row */
+.hic-event-collapsed {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Middle content stretches */
+.hic-event-main {
+    flex: 1;
+}
+
+/* Right-side column for chevron + share */
+.hic-event-chevron,
+.hic-share-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;   /* align both to the same right edge */
+    justify-content: center;
+}
+
+/* Chevron sits above share */
+.hic-event-chevron {
+    margin-right: 0;
+}
+
+/* Share sits below chevron with spacing */
+.hic-share-container {
+    margin-top: 6px;         /* space between chevron and share */
+    position: relative;      /* dropdown anchors correctly */
+}
+
+/* Share trigger styling */
+.hic-share-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.hic-share-trigger i {
+    font-size: 16px;
+}
+
+/* Dropdown menu */
+.hic-share-menu {
+    position: absolute;
+    top: 100%;               /* below the share icon */
+    right: 0;
+    margin-top: 6px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 6px 8px;
+    border-radius: 8px;
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Hover to show menu */
+.hic-share-container-inner:hover .hic-share-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Individual icons */
+.hic-share-menu .hic-share {
+    font-size: 14px;
+    color: #0F3D2E;
+    padding: 6px;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+}
+
+.hic-share-menu .hic-share:hover {
+    background: #C9A227;
+    color: #ffffff;
+}
+/* Collapsed row layout */
+.hic-event-collapsed {
+    display: flex;
+    align-items: center;
+}
+
+/* Middle content stretches */
+.hic-event-main {
+    flex: 1;
+}
+
+/* Right column: chevron above, share below */
+.hic-event-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;              /* space between chevron and share */
+    margin-left: 16px;
+    margin-right: 12px;    /* keeps them away from the hard edge */
+}
+
+/* Chevron box */
+.hic-event-chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Share container + trigger */
+.hic-share-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.hic-share-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.hic-share-trigger i {
+    font-size: 16px;
+}
+
+/* Dropdown menu */
+.hic-share-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 6px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    padding: 6px 8px;
+    border-radius: 8px;
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Hover to show menu (collapsed + expanded) */
+.hic-share-container-inner:hover .hic-share-menu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.hic-share-menu .hic-share {
+    font-size: 14px;
+    color: #0F3D2E;
+    padding: 6px;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+}
+
+.hic-share-menu .hic-share:hover {
+    background: #C9A227;
+    color: #ffffff;
+}
+/* Increase vertical space between chevron and share */
+.hic-event-right {
+    gap: 40px !important;   /* increase this number for more space */
+}
+
+/* Move share icon slightly lower (but not touching bottom) */
+.hic-share-container {
+    margin-top: 2px !important;   /* adjust this if needed */
+}
+/* COLLAPSED MODE: dropdown opens to the left */
+.hic-event-collapsed .hic-share-menu {
+    top: 50%;
+    right: 100%;          /* move left of the icon */
+    transform: translateY(-50%);
+    margin-right: 18px;    /* spacing between icon and menu */
+}
+/* COLLAPSED MODE: dropdown opens to the left with enough room */
+.hic-event-collapsed .hic-share-container {
+    position: relative; /* anchor for menu */
+}
+
+.hic-event-collapsed .hic-share-menu {
+    top: -30%;
+    right: auto;            /* stop anchoring to the right edge */
+    left: -200px;           /* fixed safe width to the left */
+    transform: translateY(-50%);
+    margin: 0;
+    width: 170px;           /* ensures icons fit */
+    justify-content: flex-start;
+}
+/* Invisible hover bridge to keep menu open */
+.hic-event-collapsed .hic-share-container-inner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 40px;       /* horizontal buffer area */
+    height: 100%;
+    background: transparent;
+    pointer-events: auto;
+}
+.hic-event-collapsed .hic-share-container-inner {
+    position: relative;
+    display: inline-flex;
+}
+
+/* Shared block styling + divider feel */
+.hic-block {
+    background: #ffffff;
+    border: 1px solid #e3e3e3;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+/* WRAPPER: text + line */
+
+
+/* Mobile ordering: What's On first, then Hero, Featured, Latest */
+@media (max-width: 768px) {
+    /* Right column (What’s On) first */
+    .elementor-column .hic-whats-on {
+        order: 1;
+    }
+
+    /* Hero second */
+    .hic-hero {
+        order: 2;
+    }
+
+    /* Featured third */
+    .hic-featured {
+        order: 3;
+    }
+
+    /* Latest News fourth */
+    .hic-latest-news {
+        order: 4;
+    }
+}
+/* FEATURED CONTENT GRID */
+.hic-featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+/* FEATURED CONTENT CARD */
+.hic-featured-card {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+/* CARD IMAGE */
+.hic-featured-card img {
+    max-width: 100%;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+/* CARD TITLE */
+.hic-featured-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0A3A2A;
+    margin-bottom: 8px;
+}
+
+/* CARD TEXT */
+.hic-featured-card p {
+    font-size: 14px;
+    color: #444;
+    margin: 0;
+}
+/* LATEST NEWS LIST */
+.hic-news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* NEWS CARD */
+.hic-news-card {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* NEWS IMAGE */
+.hic-news-card img {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+/* NEWS TITLE */
+.hic-news-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0A3A2A;
+    margin-bottom: 6px;
+}
+
+/* NEWS DATE */
+.hic-news-card .hic-news-date {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+/* NEWS EXCERPT */
+.hic-news-card p {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+/* READ MORE LINK */
+.hic-news-card a {
+    font-size: 14px;
+    font-weight: 600;
+    color: #D4AF37;
+    text-decoration: none;
+}
+
+.hic-news-card a:hover {
+    text-decoration: underline;
+}
+.hic-featured,
+.hic-latest-news {
+    margin-bottom: 40px;
+}
+/* WHAT'S ON SIDEBAR CARD */
+.hic-whats-on {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* 1. Wrapper: full-width line */
+/* Completely disable Elementor flex for this heading container */
+.hic-section-heading,
+.hic-section-heading.e-con,
+.hic-section-heading.e-con-full,
+.hic-section-heading > .e-con-inner {
+    display: block !important;
+    width: 100% !important;
+    flex: none !important;
+    align-items: unset !important;
+    justify-content: unset !important;
+}
+
+/* Draw the full-width line */
+.hic-section-heading {
+    /*border-bottom: 1px solid #dcdcdc !important; */
+    margin-bottom: 16px !important;
+    padding-bottom: 4px !important;
+    text-align: left !important;
+}
+
+/* Make the heading shrink to text width */
+.hic-section-heading .hic-section-title {
+    display: inline-block !important;
+    width: auto !important;
+}
+
+/* Style the actual <h2> */
+.hic-section-heading .hic-section-title .elementor-heading-title {
+    display: inline-block !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding-right: 12px !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: #0A3A2A !important;
+    white-space: nowrap !important;
+    background: #ffffff !important;
+}
+/* Container: heading + line */
+.hic-section-heading {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+/* The heading widget itself */
+.hic-section-heading .hic-section-title {
+    margin: 0;
+}
+
+/* The actual <h2> text */
+.hic-section-heading .hic-section-title .elementor-heading-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #0A3A2A;
+    white-space: nowrap;
+}
+
+/* The line that starts AFTER the text */
+.hic-section-heading::after {
+    content: "";
+    flex-grow: 1;
+    height: 1px;
+    background: #dcdcdc;
+    margin-left: 12px;
+}
+/* 1. Heading container: flex layout */
+.hic-section-heading {
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 16px !important;
+    position: relative !important;
+    background: transparent !important; /* ensure no white layer blocks the line */
+}
+
+/* 2. Heading text wrapper */
+.hic-section-heading .hic-section-title {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important; /* prevent masking the line */
+}
+
+/* 3. Actual <h2> text */
+.hic-section-heading .hic-section-title .elementor-heading-title {
+    margin: 0 !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: #0A3A2A !important;
+    white-space: nowrap !important;
+    background: #ffffff !important; /* ONLY the text gets a white mask */
+    padding-right: 12px !important;
+    z-index: 2 !important; /* sits ABOVE the line */
+    position: relative !important;
+}
+
+/* 4. The line that appears AFTER the text */
+.hic-section-heading::after {
+    content: "" !important;
+    flex-grow: 1 !important;
+    height: 1px !important;
+    background: #dcdcdc !important;
+    margin-left: 12px !important;
+    display: block !important;
+    z-index: 1 !important; /* sits BELOW the text mask */
+    position: relative !important;
+}
+/* 1. Flex container for heading + line */
+.hic-section-heading {
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 16px !important;
+}
+
+/* 2. The line AFTER the text */
+.hic-section-heading::after {
+    content: "" !important;
+    flex-grow: 1 !important;
+    height: 1px !important;
+    background: #dcdcdc !important;
+    margin-left: 12px !important;
+    display: block !important;
+}
+
+/* 3. Heading wrapper */
+.hic-section-heading .hic-section-title {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* 4. Actual <h2> text — THIS is the mask */
+.hic-section-heading .hic-section-title .elementor-heading-title {
+    margin: 0 !important;
+    padding-right: 12px !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: #0A3A2A !important;
+    white-space: nowrap !important;
+
+    /* THE IMPORTANT PART */
+    background: #ffffff !important;   /* mask the line */
+    line-height: 1.2 !important;      /* ensures mask height covers line */
+    position: relative !important;
+    z-index: 2 !important;            /* sits ABOVE the line */
+}
+/* Make each news card a horizontal layout */
+.hic-news-card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    background: #ffffff;
+    margin-bottom: 16px;
+}
+
+/* Force the image to behave like a left-side thumbnail */
+.hic-news-card img {
+    width: 140px !important;
+    height: 100px !important;
+    object-fit: cover !important;
+    border-radius: 4px;
+    flex-shrink: 0;
+    display: block !important;
+}
+
+/* Text container on the right */
+.hic-news-card h3 {
+    margin: 0 0 6px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #0A3A2A;
+}
+
+.hic-news-date {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+.hic-news-card p {
+    margin: 0 0 8px 0;
+    color: #444;
+}
+
+/* Read more link */
+.hic-news-card a {
+    color: #D4AF37;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.hic-news-card a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 600px) {
+    .hic-news-card {
+        flex-direction: column !important;
+    }
+
+    .hic-news-card img {
+        width: 100% !important;
+        height: auto !important;
+    }
+}
+/* Horizontal layout for Latest News cards */
+.hic-news-card {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    background: #ffffff;
+    margin-bottom: 16px;
+    min-height: 140px; /* keeps cards consistent */
+}
+
+/* Force image to behave like a thumbnail */
+.hic-news-card img {
+    width: 140px !important;
+    height: 100px !important;
+    object-fit: cover !important;
+    border-radius: 4px;
+    flex-shrink: 0 !important;
+    display: block !important;
+    margin: 0 !important;
+}
+
+/* Text container */
+.hic-news-card h3 {
+    margin: 0 0 6px 0 !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    color: #0A3A2A !important;
+}
+
+.hic-news-date {
+    font-size: 13px !important;
+    color: #777 !important;
+    margin-bottom: 8px !important;
+}
+
+.hic-news-card p {
+    margin: 0 0 8px 0 !important;
+    color: #444 !important;
+}
+
+/* Read more link */
+.hic-news-card a {
+    color: #D4AF37 !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+}
+
+.hic-news-card a:hover {
+    text-decoration: underline !important;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+    .hic-news-card {
+        flex-direction: column !important;
+    }
+
+    .hic-news-card img {
+        width: 100% !important;
+        height: auto !important;
+    }
+}
+/* Latest News – vertical cards like Hujjat */
+
+.hic-news-card {
+    padding: 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    background: #ffffff;
+    margin-bottom: 16px;
+}
+
+/* Square image, full width of card */
+.hic-news-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 4px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+/* Title */
+.hic-news-card h3 {
+    margin: 0 0 6px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #0A3A2A;
+}
+
+/* Date */
+.hic-news-date {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+/* Excerpt */
+.hic-news-card p {
+    margin: 0 0 8px 0;
+    color: #444;
+}
+
+/* Read more link */
+.hic-news-card a {
+    color: #0A3A2A;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.hic-news-card a:hover {
+    text-decoration: underline;
+}
+/* Force Latest News text to stack correctly */
+
+/* Title on its own line */
+.hic-news-card h3 {
+    display: block;
+    margin: 0 0 6px 0;
+}
+
+/* Date directly under title, never beside it */
+.hic-news-date {
+    display: block;
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    color: #777;
+    clear: both;
+}
+.hic-news-card h3,
+.hic-news-date {
+    display: block !important;
+}
+
+
+/* Excerpt under date */
+.hic-news-card p {
+    display: block;
+    margin: 0 0 8px 0;
+    color: #444;
+}
+
+/* Read more under excerpt */
+.hic-news-card a {
+    display: inline-block;
+    margin-top: 0;
+    color: #0A3A2A;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.hic-news-card a:hover {
+    text-decoration: underline;
+}
+
+/* Latest News – clarify text hierarchy */
+
+.hic-news-card h3 {
+    display: block;
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0A3A2A;
+}
+
+.hic-news-date {
+    display: block;
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    color: #777;
+}
+
+.hic-news-card p {
+    display: block;
+    margin: 0 0 8px 0;
+    color: #444;
+}
+
+.hic-news-card a {
+    display: inline-block;
+    margin-top: 0;
+    color: #0A3A2A;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.hic-news-card a:hover {
+    text-decoration: underline;
+}
+.hic-news-card {
+    display: flex;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    background: #ffffff;
+    margin-bottom: 16px;
+}
+
+.hic-news-card img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.hic-news-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.hic-news-content h3 {
+    margin: 0 0 6px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #0A3A2A;
+}
+
+.hic-news-date {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 8px;
+}
+
+.hic-news-content p {
+    margin: 0 0 8px 0;
+    color: #444;
+}
+
+.hic-news-content a {
+    color: #D4AF37;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.hic-news-content a:hover {
+    text-decoration: underline;
+}
+.hic-news-category {
+    font-size: 12px;
+    font-weight: 600;
+    color: #0A3A2A;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+}
+.hic-news-category {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #0A3A2A;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    text-decoration: none;
+}
+
+.hic-news-category:hover {
+    text-decoration: underline;
+}
+
+/* Featured Content – square image layout */
+.hic-featured-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
+/* Featured Content – Husaini branded tidy-up */
+
+/* Card container */
+.hic-featured-card {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 16px;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Hover effect */
+.hic-featured-card:hover {
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+
+/* Square image */
+.hic-featured-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 6px;
+    transition: transform 0.25s ease;
+}
+
+/* Slight zoom on hover */
+.hic-featured-card:hover img {
+    transform: scale(1.03);
+}
+
+/* Title */
+.hic-featured-card h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0A3A2A;
+}
+
+/* Excerpt */
+.hic-featured-card p {
+    margin: 0;
+    color: #444;
+    line-height: 1.4;
+    flex-grow: 1; /* pushes link to bottom */
+}
+
+/* Link */
+.hic-featured-card a {
+    color: #0A3A2A;
+    font-weight: 600;
+    text-decoration: none;
+    margin-top: auto;
+}
+
+.hic-featured-card a:hover {
+    text-decoration: underline;
+}
+/* Override Elementor’s global row spacing for THIS page only */
+.elementor-1463 .elementor-element {
+    --widgets-spacing:20px 20px;
+    --widgets-spacing-row: 2px !important;
+    --widgets-spacing-column: 20px;
+}
+.hic-timetable-list,
+.hic-timetable-row,
+.hic-timetable-time,
+.hic-timetable-label {
+    white-space: normal;
+    word-break: break-word;
+}
+.hic-event-image-wrapper img {
+    max-height: 220px;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+}
+.hic-event-expanded-inner {
+    align-items: flex-start;
+}
+
+.hic-event-left,
+.hic-event-details {
+    flex: 1 1 auto;
+}
+
+.hic-event-details {
+    min-height: 0;
+}
+
+.hic-event-timetable {
+    margin-top: 20px;
+}
+/* Make each programme row stack vertically */
+.hic-timetable-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+/* Time on its own line */
+.hic-timetable-time {
+    font-weight: 600;
+    margin-bottom: 4px;
+    display: block;
+}
+
+/* Label on its own line */
+.hic-timetable-label {
+    display: block;
+    line-height: 1.4;
+}
+.hic-event-expanded-inner {
+    display: flex;
+    gap: 24px;
+}
+
+.hic-event-left {
+    flex: 0 0 260px; /* fixed width for left column */
+}
+
+.hic-event-details {
+    flex: 1; /* remaining space */
+    min-width: 0;
+}
+/* ------------------------------------------
+   MOBILE HOMEPAGE REORDERING (FINAL VERSION)
+   ------------------------------------------ */
+@media (max-width: 768px) {
+
+    /* Make the inner wrapper a flex column */
+    .hic-home-wrapper > .e-con-inner {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* Container A: hero + featured + latest news */
+    .elementor-element-a52e2b1 {
+        order: 1 !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    /* Container B: what's on */
+    .elementor-element-b04ab91 {
+        order: 2 !important;
+    }
+
+    /* Reorder sections INSIDE Container A */
+    .hic-hero {
+        order: 1 !important;
+    }
+
+    .hic-featured {
+        order: 3 !important;
+    }
+
+    .hic-latest-news {
+        order: 4 !important;
+    }
+}
