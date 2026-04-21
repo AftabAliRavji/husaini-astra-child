@@ -16,6 +16,8 @@ function hic_child_enqueue_styles() {
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 require_once get_stylesheet_directory() . '/snippets/prayer-times.php';
+require_once get_stylesheet_directory() . '/snippets/featured-content.php';
+
 add_action( 'astra_header', function() {
     echo do_shortcode('[INSERT_ELEMENTOR id="2780"]');
 });
