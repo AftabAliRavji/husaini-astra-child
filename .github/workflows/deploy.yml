@@ -18,7 +18,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.FTP_PATH }}
-          local-dir: wp-content/themes/astra-child/
+          local-dir: ./
           protocol: ftp
           log-level: minimal
           dangerous-clean-slate: false
