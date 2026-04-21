@@ -18,6 +18,8 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 require_once get_stylesheet_directory() . '/snippets/prayer-times.php';
 require_once get_stylesheet_directory() . '/snippets/featured-content.php';
 require_once get_stylesheet_directory() . '/snippets/latest-news.php';
+require_once get_stylesheet_directory() . '/snippets/hic_events.php';
+
 
 add_action( 'astra_header', function() {
     echo do_shortcode('[INSERT_ELEMENTOR id="2780"]');
