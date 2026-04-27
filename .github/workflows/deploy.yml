@@ -19,6 +19,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.FTP_PATH }}
           local-dir: ./
-          protocol: ftp
+          protocol: ftps
+          passive: true
           log-level: minimal
           dangerous-clean-slate: false
+          timeout: 120
