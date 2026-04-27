@@ -51,3 +51,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+window.addEventListener('load', function () {
+    const g = document.querySelector('.hic-pt-gregorian');
+    const h = document.querySelector('.hic-pt-islamic');
+
+    const mg = document.querySelector('.hic-mobile-gregorian');
+    const mh = document.querySelector('.hic-mobile-hijri');
+
+    if (g && h && mg && mh) {
+        mg.textContent = g.textContent;
+        mh.textContent = h.textContent;
+    }
+});
