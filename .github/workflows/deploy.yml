@@ -22,3 +22,4 @@ jobs:
           protocol: ftp
           log-level: minimal
           dangerous-clean-slate: false
+          timeout: 120
