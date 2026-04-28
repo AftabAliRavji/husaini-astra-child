@@ -107,16 +107,34 @@ function hic_today_prayer_times_shortcode() {
         data-tomorrow-maghrib="<?php echo esc_attr($tomorrow_maghrib); ?>"
     >
 
-        <!-- LEFT SIDE -->
         <div class="hic-pt-left">
-            <div class="hic-pt-date-icon">
-                <!-- calendar icon -->
-            </div>
-            <div class="hic-pt-date-text">
-                <div class="hic-pt-gregorian"><?php echo esc_html($gregorian_date); ?></div>
-                <div class="hic-pt-islamic"><?php echo esc_html($islamic_date); ?></div>
-            </div>
+
+    <!-- DESKTOP VERSION (unchanged) -->
+    <div class="hic-pt-date-desktop">
+        <div class="hic-pt-date-icon">
+            <!-- calendar icon -->
         </div>
+        <div class="hic-pt-date-text">
+            <div class="hic-pt-gregorian"><?php echo esc_html($gregorian_date); ?></div>
+            <div class="hic-pt-islamic"><?php echo esc_html($islamic_date); ?></div>
+        </div>
+    </div>
+
+    <!-- MOBILE VERSION (Salat Times) -->
+    <div class="hic-pt-date-mobile">
+        <div class="hic-mobile-salat-icon">
+            <svg viewBox="0 0 24 24" class="hic-pt-icon-mosque" aria-hidden="true">
+                <path d="M4 20h16v-6l-3-2v-2l-5-3-5 3v2l-3 2v6z"
+                      fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M12 4v2"
+                      stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="hic-mobile-salat-title">Salat Times</div>
+    </div>
+
+</div>
+
 
         <!-- RIGHT SIDE -->
         <div class="hic-pt-right">

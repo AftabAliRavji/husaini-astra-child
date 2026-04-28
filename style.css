@@ -2231,3 +2231,92 @@
         line-height: 1.2;
     }
 }
+/* ============================
+   MOBILE SALAT TIMES HEADER FIX
+   ============================ */
+@media (max-width: 768px) {
+
+    /* Hide desktop date block */
+    .hic-pt-date-desktop {
+        display: none !important;
+    }
+
+    /* Show mobile Salat Times header */
+    .hic-pt-date-mobile {
+        display: flex !important;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 0;
+        width: 100%;
+        color: #ffffff; /* text stays white */
+        text-align: center;
+    }
+
+    /* Force icon to gold */
+    .hic-mobile-salat-icon svg {
+        width: 18px;
+        height: 18px;
+        display: block;
+        fill: none !important;
+    }
+
+    /* Override inline SVG path stroke */
+    .hic-mobile-salat-icon svg path {
+        stroke: var(--hic-gold, #d4af37) !important;
+    }
+
+    /* Text styling */
+    .hic-mobile-salat-title {
+        font-size: 17px;
+        font-weight: 600;
+        color: #ffffff;
+        line-height: 1;
+        display: block;
+    }
+}
+
+/* ============================
+   DESKTOP — KEEP ORIGINAL VIEW
+   ============================ */
+@media (min-width: 769px) {
+
+    /* Hide mobile Salat Times header */
+    .hic-pt-date-mobile {
+        display: none !important;
+    }
+
+    /* Show desktop date block */
+    .hic-pt-date-desktop {
+        display: flex !important;
+    }
+}
+/* ============================
+   MOBILE — FIX EXTRA HEIGHT UNDER FEATURED CONTENT
+   ============================ */
+@media (max-width: 768px) {
+
+    /* Remove padding/margin/min-height from the Featured Content wrapper */
+    .hic-featured-content,
+    .hic-featured-content .elementor-widget-container,
+    .hic-featured-content .elementor-container,
+    .hic-featured-content .elementor-section {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        min-height: auto !important;
+    }
+
+    /* Remove empty paragraphs Elementor sometimes injects */
+    .hic-featured-content p:empty {
+        display: none !important;
+    }
+
+    /* Ensure the card itself doesn't add spacing */
+    .hic-featured-content .hic-card {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+}
