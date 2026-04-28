@@ -1,4 +1,4 @@
-name: Manual Deploy to InfinityFree
+name: Manual Deploy to InfinityFree (Child Theme Only)
 
 on:
   workflow_dispatch:
@@ -11,16 +11,33 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ${{ secrets.FTP_PATH }}
-          local-dir: ./
-          protocol: ftps
-          passive: true
-          log-level: minimal
-          dangerous-clean-slate: false
-          timeout: 120
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Deploy Child Theme via Robust FTP (lftp)
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+          REMOTE_PATH: "/htdocs/wp-content/themes/astra-child"
+        run: |
+          echo "Starting robust FTP deploy of child theme..."
+
+          lftp -e "
+            set ftp:ssl-allow no;
+            set net:max-retries 5;
+            set net:timeout 30;
+            set net:reconnect-interval-base 5;
+            set net:reconnect-interval-max 60;
+
+            mirror --reverse --verbose \
+                   --delete \
+                   --only-newer \
+                   --exclude-glob .git* \
+                   --exclude-glob .github* \
+                   --exclude-glob node_modules \
+                   ./wp-content/themes/astra-child \
+                   \$REMOTE_PATH;
+
+            bye
+          " -u $FTP_USER,$FTP_PASS $FTP_HOST
