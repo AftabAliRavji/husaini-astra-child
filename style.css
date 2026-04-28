@@ -2164,7 +2164,7 @@
     left: 0 !important;
 }
 .hic-mobile-header img {
-    width: 180px !important;
+    width: 150px !important;
     height: auto !important;
 }
 
@@ -2179,4 +2179,55 @@
 .hfe-flyout-close svg {
     width: 28px !important;
     height: 28px !important;
+}
+/* Mobile-only Hijri date colour */
+@media (max-width: 768px) {
+    .hic-mobile-hijri {
+        color: #d4af37; /* gold */
+        font-weight: 600;
+    }
+}
+@media (max-width: 768px) {
+    .hic-mobile-date-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hic-mobile-date-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .hic-mobile-date-icon svg {
+        width: 18px;
+        height: 18px;
+        color: #d4af37; /* gold */
+        flex-shrink: 0;
+    }
+}
+@media (max-width: 768px) {
+    .hic-mobile-date-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 3px;
+    }
+
+    .hic-mobile-date-icon svg {
+        width: 20px;
+        height: 20px;
+        color: #d4af37;
+        flex-shrink: 0;
+    }
+
+    .hic-mobile-dates {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.2;
+    }
 }
